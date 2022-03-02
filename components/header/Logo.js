@@ -1,12 +1,17 @@
 import React from "react";
-import { Box, Text } from "@chakra-ui/react";
+import NextLink from "next/link";
+import { Box, Image } from "@chakra-ui/react";
 
-export default function Logo(props) {
-  return (
-    <Box {...props}>
-      <Text fontSize="lg" fontWeight="bold">
-        PSBArt
-      </Text>
-    </Box>
-  )
+export default function Logo() {
+	return (
+		<Box>
+			<NextLink href={"/"} passHref>
+				<Image
+					src={`logotype.png`}
+					boxSize="58%"
+					objectFit="cover"
+				/>
+			</NextLink>
+		</Box>
+	);
 }

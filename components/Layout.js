@@ -1,4 +1,16 @@
+import { Box } from "@chakra-ui/react";
+import { Fragment } from "react";
+import MainHeader from "./header/main-header";
 
-export function Layout({children}) {
-    return children;
-} 
+function Layout(props) {
+	return (
+		<Fragment>
+			<Box>
+				<MainHeader />
+				<main>{props.children}</main>
+			</Box>
+		</Fragment>
+	);
+}
+
+export default Layout;

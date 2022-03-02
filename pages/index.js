@@ -1,14 +1,15 @@
-import Head from "next/head";
-import { Heading } from '@chakra-ui/react';
+import { Box } from "@chakra-ui/react";
+import { getFeaturedItems } from "../../showcase-data";
+import HeroCarousel from "../components/hero/hero-carousel";
 
-export default function Home() {
-  return (
-    <div>
-      <Head>
-        <title>PSB Art</title>
-        <meta name="keywords" content="Art" />
-      </Head>
-      <Heading>PSBArt</Heading>
-    </div>
-  );
+export default function HomePage() {
+	const featuredItems = getFeaturedItems();
+
+	return (
+		<Box>
+			<HeroCarousel items={featuredItems} />
+
+			{/* <ArtList items={allItems} /> */}
+		</Box>
+	);
 }
