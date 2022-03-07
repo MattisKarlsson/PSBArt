@@ -1,50 +1,110 @@
-import { Box, Image, Button } from "@chakra-ui/react";
-import NextLink from "next/link";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-function HeroCarousel(props) {
+import "swiper/css";
+import "swiper/css/autoplay";
+
+import {
+	Box,
+	Button,
+	Container,
+	Flex,
+	Heading,
+	Image,
+	Stack,
+} from "@chakra-ui/react";
+
+import { Autoplay, Pagination, Navigation } from "swiper";
+import Link from "../header/link";
+
+export default function HeroCarousel(props) {
 	const { items } = props;
 
 	return (
-		<Box
-			h="100vh"
+		<Flex
 			w="100vw"
-			p={1}
-			boxSize="cover"
-			position="relative"
-			boxSizing={1}
+			// mb="8"
+			justifyContent="center"
+			alignItems="center"
 		>
-			<Carousel
-				infiniteLoop={true}
-				centerMode={true}
-				centerSlidePercentage={100}
-				showThumbs={false}
-				autoPlay
-				// emulateTouch
-				transitionTime={800}
-				useKeyboardArrows={true}
-				animationHandler={"fade"}
-			>
-				{items.map((item) => {
-					return (
-						<Image
-							src={item.image}
-							objectFit="cover"
-							h="98vh"
-							w="80vw"
-							maxH="98vh"
-						/>
-					);
-				})}
-			</Carousel>
-			<NextLink href={"/showcase"} passHref>
-				<Button colorScheme="teal" variant="outline">
-					Showcase
+			<Link href={"/showcase"} passhref>
+				<Button
+					colorScheme="red"
+					variant="solid"
+					position="absolute"
+					overflow="hidden"
+					zIndex={9999}
+					mt="75vh"
+					mb="25vh"
+				>
+					SHOWCASE
 				</Button>
-			</NextLink>
-		</Box>
+			</Link>
+			<Swiper
+				spaceBetween={50}
+				slidesPerView={1}
+				autoplay={{
+					delay: 2500,
+					disableOnInteraction: false,
+				}}
+				loop={true}
+				navigation
+				pagination={{
+					clickable: true,
+				}}
+				scrollbar={{ draggable: true }}
+				onSlideChange={() => console.log("slide change")}
+				onSwiper={swiper => console.log(swiper)}
+				modules={[Autoplay, Pagination, Navigation]}
+			>
+				{items.map(item => (
+					<SwiperSlide>
+						<Box
+							key={item.id}
+							position="relative"
+							height="100vh"
+							width={"100vw"}
+							overflow={"hidden"}
+							backgroundPosition="center"
+							backgroundRepeat="no-repeat"
+							backgroundSize="cover"
+							backgroundImage={`url(${item.image})`}
+						>
+							{/* <Image
+								src={item.image}
+								backgroundPosition="center"
+								backgroundRepeat="no-repeat"
+								backgroundSize="cover"
+								zIndex="0"
+							/> */}
+							<Container size="container.lg" h="600px" position="relative">
+								<Stack
+									spacing={6}
+									w="full"
+									maxW="lg"
+									position="relative"
+									top="65vh"
+									transform="translate(0, -50%)"
+								>
+									<Heading
+										base="3x1"
+										md="4x1"
+										w="fit-content"
+										alignSelf="center"
+										lg="5x1"
+										textAlign="center"
+										style={{
+											backdropFilter: `blur(200px)`,
+										}}
+										color="orange"
+									>
+										{item.name}
+									</Heading>
+								</Stack>
+							</Container>
+						</Box>
+					</SwiperSlide>
+				))}
+			</Swiper>
+		</Flex>
 	);
 }
-
-export default HeroCarousel;

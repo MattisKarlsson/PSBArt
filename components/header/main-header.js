@@ -1,40 +1,18 @@
-import { Spacer, Box, Flex } from "@chakra-ui/react";
+import React from "react";
 import Logo from "./logo";
-import MenuComponent from "./menu-component";
+import MenuContainer from "./menu-container";
+import MenuLinks from "./menu-links";
+import MenuToggle from "./menu-toggle";
 
-function MainHeader() {
+export default function MainHeader(props) {
+	const [isOpen, setIsOpen] = React.useState(false);
+	const toggle = () => setIsOpen(!isOpen);
+
 	return (
-		<Flex
-			justify="space-between"
-			w="100%"
-			h="6rem"
-			px="10"
-			py="1"
-			align="center"
-			style={{ backdropFilter: `blur(2px)` }}
-			bg="#1A1A1A2A"
-			position="fixed"
-			zIndex={1}
-		>
-			<Box p="2">
-				<Logo />
-			</Box>
-			<Spacer />
-			<Box>
-				<MenuComponent />
-			</Box>
-		</Flex>
+		<MenuContainer {...props}>
+			<Logo />
+			<MenuToggle toggle={toggle} isOpen={isOpen} />
+			<MenuLinks isOpen={isOpen} />
+		</MenuContainer>
 	);
 }
-
-// {/* <header>
-//   <nav>
-//     <ul>
-//       <li>
-//       <NextLink href={"/showcase"} passHref>Art Showcase</NextLink>
-//         <Link href="/showcase"></Link>
-//       </li>
-//     </ul>
-//   </nav>
-// </header> */}
-export default MainHeader;

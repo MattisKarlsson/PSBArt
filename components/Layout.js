@@ -5,7 +5,10 @@ import MainHeader from "./header/main-header";
 function Layout(props) {
 	return (
 		<Fragment>
-			<Box>
+			<Box
+
+			// backgroundColor="#EEEEEE"
+			>
 				<MainHeader />
 				<main>{props.children}</main>
 			</Box>
