@@ -1,13 +1,20 @@
 import React from "react";
-import Link from "./link";
+import NLink from "./nextlink";
 import { Box, Image } from "@chakra-ui/react";
 
 export default function Logo(props) {
 	return (
 		<Box {...[props]}>
-			<Link href={"/"} passhref>
-				<Image src={`logotype.png`} boxSize="52%" objectFit="cover" />
-			</Link>
+			<NLink href={"/"} passhref w="75px">
+				<Image
+					bg="gray.200"
+					borderRadius={6}
+					src={`logotype.png`}
+					boxSize="75px"
+					objectFit="cover"
+					position="static"
+				/>
+			</NLink>
 		</Box>
 	);
 }

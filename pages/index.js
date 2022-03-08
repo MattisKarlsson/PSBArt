@@ -8,8 +8,6 @@ export default function HomePage() {
 	return (
 		<Box>
 			<HeroCarousel items={featuredItems} />
-
-			{/* <ArtList items={allItems} /> */}
 		</Box>
 	);
 }

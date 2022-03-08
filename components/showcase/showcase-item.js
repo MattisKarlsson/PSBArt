@@ -13,18 +13,28 @@ import {
 function ShowcaseItem(props) {
 	const { id, name, image, price } = props;
 	return (
-		<Box>
+		<Box mt="3rem">
 			<Container
 				// size="container.lg"
-				h="200px"
+				h="350px"
 				boxSize="cover"
-				w="200px"
+				// w="22%"
+				display="flex"
+				flexDirection="column"
 				align="center"
 				// position="relative"
-				// maxW="40rem"
+				maxW="40rem"
 				m="5rem auto"
 			>
-				<img src={"/" + image} alt={name} w="100vw" position="relative" />
+				<img
+					src={"/" + image}
+					alt={name}
+					w="100%"
+					h="95%"
+					mb="5px"
+					boxSize="cover"
+					// position="relative"
+				/>
 				<Stack
 				// maxW="lg"
 				// spacing={6}
@@ -33,13 +43,15 @@ function ShowcaseItem(props) {
 				// top="65vh"
 				// transform="translate(0, -50%)"
 				>
-					<Box position="relative">
-						<Text>{name.toUpperCase()}</Text>
-						<Text>{price}</Text>
+					<Flex w="100%" h="5%" justifyContent="space-between" fontSize="18px">
+						<Text w="90%" mb="15px">
+							{name.toUpperCase()}
+						</Text>
+						<Text w="10%">{price}</Text>
 						{/* <Button colorScheme="teal" variant="outline" as={Link} to="/showcase">
           Showcase
         </Button> */}
-					</Box>
+					</Flex>
 				</Stack>
 			</Container>
 		</Box>

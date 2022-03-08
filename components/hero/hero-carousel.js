@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 
 import { Autoplay, Pagination, Navigation } from "swiper";
-import Link from "../header/link";
+import NLink from "../header/nextlink";
 
 export default function HeroCarousel(props) {
 	const { items } = props;
@@ -26,19 +26,6 @@ export default function HeroCarousel(props) {
 			justifyContent="center"
 			alignItems="center"
 		>
-			<Link href={"/showcase"} passhref>
-				<Button
-					colorScheme="red"
-					variant="solid"
-					position="absolute"
-					overflow="hidden"
-					zIndex={9999}
-					mt="75vh"
-					mb="25vh"
-				>
-					SHOWCASE
-				</Button>
-			</Link>
 			<Swiper
 				spaceBetween={50}
 				slidesPerView={1}
@@ -63,26 +50,27 @@ export default function HeroCarousel(props) {
 							position="relative"
 							height="100vh"
 							width={"100vw"}
+							p="auto"
+							m="auto"
 							overflow={"hidden"}
 							backgroundPosition="center"
 							backgroundRepeat="no-repeat"
 							backgroundSize="cover"
 							backgroundImage={`url(${item.image})`}
 						>
-							{/* <Image
-								src={item.image}
-								backgroundPosition="center"
-								backgroundRepeat="no-repeat"
-								backgroundSize="cover"
-								zIndex="0"
-							/> */}
-							<Container size="container.lg" h="600px" position="relative">
+							<Container
+								size="container.lg"
+								h="600px"
+								position="relative"
+								p="auto"
+								m="auto"
+							>
 								<Stack
 									spacing={6}
 									w="full"
 									maxW="lg"
 									position="relative"
-									top="65vh"
+									top="86vh"
 									transform="translate(0, -50%)"
 								>
 									<Heading
@@ -93,12 +81,33 @@ export default function HeroCarousel(props) {
 										lg="5x1"
 										textAlign="center"
 										style={{
-											backdropFilter: `blur(200px)`,
+											backdropFilter: `blur(2px)`,
 										}}
-										color="orange"
+										color="pink.500"
 									>
 										{item.name}
 									</Heading>
+									<NLink
+										// position="relative"
+										align="center"
+										color="cyan.200"
+										alignSelf="center"
+										href={"/showcase"}
+										w="120px"
+										passhref
+									>
+										SHOWCASE
+										{/* <Button
+											color="red.100"
+											// variant="ghost"
+											// overflow="hidden"
+											zIndex={9999}
+											// mt="75vh"
+											// mb="25vh"
+										> */}
+										{/* SHOWCASE */}
+										{/* </Button> */}
+									</NLink>
 								</Stack>
 							</Container>
 						</Box>

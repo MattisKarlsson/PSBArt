@@ -1,26 +1,33 @@
-import { Box, Link, Stack } from "@chakra-ui/react";
+import { Box, Button, Stack } from "@chakra-ui/react";
+import NLink from "./nextlink";
 
 export default function MenuLinks({ isOpen }) {
 	return (
 		<Box
 			display={{
-				base: isOpen ? "block" : "none",
-				md: "block",
+				base: isOpen ? "flex" : "none",
+				sm: "flex",
 			}}
-			flexBasis={{ base: "100%", md: "auto" }}
+			flexBasis={{ base: "flex", md: "auto" }}
 		>
 			<Stack
-				spacing={8}
+				color="cyan.200"
+				fontSize="18px"
 				align="center"
-				justify={["center", "space-between", "flex-end", "flex-end"]}
+				spacing={6}
+				justify={["center", "flex-end", "flex-end", "flex-end"]}
 				direction={["column", "row", "row", "row"]}
-				pt={[4, 4, 0, 0]}
+				pt={[220, 0, 0, 0]}
 			>
-				<Link href="/" variant="solid" colorScheme="paper">
+				<NLink href="/" passHref>
 					Home
-				</Link>
-				<Link href="/showcase">Showcase </Link>
-				<Link href="/contact">Contact </Link>
+				</NLink>
+				<NLink href="/showcase" passHref>
+					Showcase
+				</NLink>
+				<NLink href="/contact" passHref>
+					Contact
+				</NLink>
 			</Stack>
 		</Box>
 	);

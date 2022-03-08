@@ -5,18 +5,7 @@ function ShowcaseList(props) {
 	const { items } = props;
 
 	return (
-		<Box
-		// minChildWidth="120px"
-		// position="relative"
-		// height="100vh"
-		// width={"100vw"}
-		// overflow={"hidden"}
-		// autoColumns
-		// columns={3}
-		// spacingX="40px"
-		// spacingY="20px"
-		// autoFlow
-		>
+		<Box>
 			<SimpleGrid columns={3} minChildWidth="300px">
 				{items?.map(item => (
 					<ShowcaseItem
