@@ -1,8 +1,10 @@
+import { useForm } from "react-hook-form";
 import {
 	Box,
 	Button,
 	Flex,
 	FormControl,
+	FormErrorMessage,
 	FormLabel,
 	Heading,
 	IconButton,
@@ -14,35 +16,46 @@ import {
 	useColorModeValue,
 	VStack,
 } from "@chakra-ui/react";
-import React from "react";
 import { BsGithub, BsPerson } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import {
 	babypink,
-	dirtclean,
-	gyellow,
-	horizon,
+	darkblue,
 	horizonpinkL,
 	tealish,
-	wine,
 	yellown,
 } from "../../theme";
 import NLink from "./../header/nextlink";
-import { paper } from "./../../theme";
 
 export default function FormContainer() {
+	const {
+		handleSubmit,
+		register,
+		formState: { errors, isSubmitting },
+	} = useForm();
+
+	function onSubmit(values) {
+		return new Promise(resolve => {
+			setTimeout(() => {
+				alert(JSON.stringify(values, null, 2));
+				resolve();
+			}, 600);
+		});
+	}
+
 	return (
 		<Flex
-			bg={useColorModeValue("gray.100", "gray.900")}
+			minH="calc(100vh - 72px)"
+			bg={darkblue}
 			align="center"
 			justify="center"
 			id="contact"
 		>
 			<Box
 				borderRadius="lg"
-				mt={"8rem"}
-				mb={"8rem"}
+				mt={"7rem"}
+				mb={"7rem"}
 				// m={{ base: 14, sm: 5, md: 2, lg: 12 }}
 				p={{ base: 4 }}
 			>
@@ -50,6 +63,7 @@ export default function FormContainer() {
 					<VStack spacing={{ base: 4, md: 8, lg: 10 }}>
 						<Heading
 							color={yellown}
+							n
 							fontSize={{
 								base: "5xl",
 								md: "5xl",
@@ -66,7 +80,10 @@ export default function FormContainer() {
 								justify="space-around"
 								direction={{ base: "row", md: "column" }}
 							>
-								<NLink href={`https://github.com/MattisKarlsson`} isExternal>
+								<NLink
+									href={`https://github.com/MattisKarlsson`}
+									isExternal
+								>
 									<IconButton
 										color={tealish}
 										aria-label="Github"
@@ -77,7 +94,10 @@ export default function FormContainer() {
 										isRound
 									/>
 								</NLink>
-								<NLink href={`https://www.instagram.com/psb.rhz/`} isExternal>
+								<NLink
+									href={`https://www.instagram.com/psb.rhz/`}
+									isExternal
+								>
 									<IconButton
 										color={tealish}
 										aria-label="Instagram"
@@ -94,55 +114,101 @@ export default function FormContainer() {
 								bg={useColorModeValue("white", "gray.700")}
 								borderRadius="lg"
 								p={8}
-								color={useColorModeValue("gray.700", "whiteAlpha.900")}
+								color={useColorModeValue(
+									"gray.700",
+									"whiteAlpha.900",
+								)}
 								shadow="base"
 							>
-								<VStack spacing={5}>
-									<FormControl isRequired>
-										<FormLabel>Name</FormLabel>
-										<InputGroup>
-											<InputLeftElement children={<BsPerson />} />
-											<Input type="text" name="name" placeholder="Your Name" />
-										</InputGroup>
-									</FormControl>
+								<form onSubmit={handleSubmit(onSubmit)}>
+									<VStack spacing={5}>
+										<FormControl isInvalid={errors.name} isRequired>
+											<FormLabel htmlFor="name">Name</FormLabel>
+											<InputGroup>
+												<InputLeftElement children={<BsPerson />} />
+												<Input
+													type="text"
+													name="name"
+													placeholder="Your Name"
+													{...register("name", {
+														required: "This is required",
+														minLength: {
+															value: 2,
+															message: "Not valid name",
+														},
+													})}
+												/>
+												<FormErrorMessage>
+													{errors.name && errors.name.message}
+												</FormErrorMessage>
+											</InputGroup>
+										</FormControl>
 
-									<FormControl isRequired>
-										<FormLabel>Email</FormLabel>
+										<FormControl isInvalid={errors.email} isRequired>
+											<FormLabel htmlFor="email">Email</FormLabel>
 
-										<InputGroup>
-											<InputLeftElement children={<MdOutlineEmail />} />
-											<Input
-												type="email"
-												name="email"
-												placeholder="Your Email"
+											<InputGroup>
+												<InputLeftElement
+													children={<MdOutlineEmail />}
+												/>
+												<Input
+													type="email"
+													name="email"
+													placeholder="Your Email"
+													{...register("email", {
+														required: "This is required",
+														minLength: {
+															value: 6,
+															message: "Not valid Email",
+														},
+													})}
+												/>
+												<FormErrorMessage>
+													{errors.email && errors.email.message}
+												</FormErrorMessage>
+											</InputGroup>
+										</FormControl>
+
+										<FormControl
+											isInvalid={errors.message}
+											isRequired
+										>
+											<FormLabel htmlFor="message">Message</FormLabel>
+
+											<Textarea
+												name="message"
+												placeholder="Your Message"
+												{...register("message", {
+													required: "This is required",
+													minLength: {
+														value: 0,
+														message: "Forget to include message ?",
+													},
+												})}
+												rows={9}
+												resize="none"
 											/>
-										</InputGroup>
-									</FormControl>
+											<FormErrorMessage>
+												{errors.message && errors.message.message}
+											</FormErrorMessage>
+										</FormControl>
 
-									<FormControl isRequired>
-										<FormLabel>Message</FormLabel>
-
-										<Textarea
-											name="message"
-											placeholder="Your Message"
-											rows={6}
-											resize="none"
-										/>
-									</FormControl>
-
-									<Button
-										colorScheme={horizonpinkL}
-										bg={horizonpinkL}
-										color={yellown}
-										_hover={{
-											bg: babypink,
-											color: yellown,
-										}}
-										isFullWidth
-									>
-										Send Message
-									</Button>
-								</VStack>
+										<Button
+											colorScheme={horizonpinkL}
+											bg={horizonpinkL}
+											isLoading={isSubmitting}
+											color={yellown}
+											_hover={{
+												bg: babypink,
+												color: yellown,
+											}}
+											isFullWidth
+											type={"submit"}
+										>
+											Send Message
+										</Button>
+									</VStack>
+								</form>
 							</Box>
 						</Stack>
 					</VStack>

@@ -1,12 +1,19 @@
-import { Box, Container, IconButton, Stack, Text } from "@chakra-ui/react";
+import {
+	Box,
+	Container,
+	IconButton,
+	Stack,
+	Text,
+} from "@chakra-ui/react";
 import { BsGithub } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 import {
 	backgroundGradient,
-	electricpunk,
-	gyellow,
+	darkwine,
+	darkerblue,
 	tealish,
-	horizonpurple,
+	electricpunk,
+	lightyellow,
 } from "./../theme";
 import NLink from "./header/nextlink";
 
@@ -23,16 +30,19 @@ export default function Footer(props) {
 				spacing={16}
 				justify={{ base: "center", sm: "space-between" }}
 				align={{ base: "center" }}
-				bgColor={horizonpurple}
+				bgColor={electricpunk}
 				bgGradient={
-					(backgroundGradient = `linear-gradient(225deg, ${gyellow} 10%, transparent, ${electricpunk} 100%)`)
+					(backgroundGradient = `linear-gradient(195deg, ${darkwine} 15%, transparent, ${darkerblue} 80%)`)
 				}
 			>
 				<Text color={tealish} fontSize="sm">
 					© 2022 Mattis Karlsson{" "}
 				</Text>
 				<Stack direction={"row"} spacing={6}>
-					<NLink href={`https://github.com/MattisKarlsson`} isExternal>
+					<NLink
+						href={`https://github.com/MattisKarlsson`}
+						isExternal
+					>
 						<IconButton
 							aria-label="Github"
 							color={tealish}
@@ -43,7 +53,10 @@ export default function Footer(props) {
 							isRound
 						/>{" "}
 					</NLink>
-					<NLink href={`https://www.instagram.com/psb.rhz/`} isExternal>
+					<NLink
+						href={`https://www.instagram.com/psb.rhz/`}
+						isExternal
+					>
 						<IconButton
 							aria-label="Instagram"
 							color={tealish}

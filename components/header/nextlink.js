@@ -4,7 +4,7 @@ import { horizonpinkL } from "./../../theme";
 
 export default function NLink({ href, children, ...props }) {
 	return (
-		<NextLink href={href} passhref="true">
+		<NextLink href={href} passHref>
 			<Link
 				as={"a"}
 				borderRadius="6px"

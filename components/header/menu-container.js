@@ -1,5 +1,9 @@
 import { Flex } from "@chakra-ui/react";
-import { backgroundGradient, gyellow, electricpunk } from "./../../theme";
+import {
+	backgroundGradient,
+	darkerblue,
+	darkwine,
+} from "./../../theme";
 
 function MenuContainer({ children, ...props }) {
 	return (
@@ -15,7 +19,7 @@ function MenuContainer({ children, ...props }) {
 			zIndex={9999}
 			bgColor="transparent"
 			bgGradient={
-				(backgroundGradient = `linear-gradient(225deg, ${electricpunk} 38%, transparent, ${gyellow} 90%)`)
+				(backgroundGradient = `linear-gradient(225deg, ${darkwine} 20%, transparent, ${darkerblue} 80%)`)
 			}
 			{...props}
 		>

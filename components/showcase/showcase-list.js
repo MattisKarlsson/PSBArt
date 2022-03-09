@@ -1,12 +1,18 @@
-import { Box, SimpleGrid } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import ShowcaseItem from "./showcase-item";
+import { darkblue } from "./../../theme";
 
-function ShowcaseList(props) {
-	const { items } = props;
-
+function ShowcaseList({ items } = props) {
 	return (
 		<Box>
-			<SimpleGrid columns={3} minChildWidth="300px">
+			<Box
+				mt="80px"
+				padding={4}
+				w="100%"
+				mx="auto"
+				bg={darkblue}
+				sx={{ columnCount: [1, 2, 3], columnGap: "6" }}
+			>
 				{items?.map(item => (
 					<ShowcaseItem
 						key={item.id}
@@ -16,7 +22,7 @@ function ShowcaseList(props) {
 						image={item.image}
 					/>
 				))}
-			</SimpleGrid>
+			</Box>
 		</Box>
 	);
 }

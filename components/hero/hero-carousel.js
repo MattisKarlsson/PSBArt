@@ -1,28 +1,32 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import "swiper/css";
-import "swiper/css/autoplay";
-
 import {
 	Box,
-	Button,
 	Container,
 	Flex,
 	Heading,
-	Image,
 	Stack,
+	Text,
 } from "@chakra-ui/react";
-
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay, Navigation, Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/autoplay";
+import { Swiper, SwiperSlide } from "swiper/react";
 import NLink from "../header/nextlink";
+import {
+	darkwine,
+	dirtclean,
+	paper,
+	tealish,
+	white,
+	whiteblue,
+} from "./../../theme";
 
 export default function HeroCarousel(props) {
 	const { items } = props;
 
 	return (
 		<Flex
-			w="100vw"
-			// mb="8"
+			minH="100vh"
+			// w="100vw"
 			justifyContent="center"
 			alignItems="center"
 		>
@@ -30,7 +34,7 @@ export default function HeroCarousel(props) {
 				spaceBetween={50}
 				slidesPerView={1}
 				autoplay={{
-					delay: 2500,
+					delay: 4000,
 					disableOnInteraction: false,
 				}}
 				loop={true}
@@ -48,11 +52,10 @@ export default function HeroCarousel(props) {
 						<Box
 							key={item.id}
 							position="relative"
-							height="100vh"
+							minH="100vh"
 							width={"100vw"}
 							p="auto"
 							m="auto"
-							overflow={"hidden"}
 							backgroundPosition="center"
 							backgroundRepeat="no-repeat"
 							backgroundSize="cover"
@@ -70,8 +73,11 @@ export default function HeroCarousel(props) {
 									w="full"
 									maxW="lg"
 									position="relative"
-									top="86vh"
+									top="75vh"
 									transform="translate(0, -50%)"
+									style={{
+										backdropFilter: `blur(3px)`,
+									}}
 								>
 									<Heading
 										base="3x1"
@@ -80,33 +86,32 @@ export default function HeroCarousel(props) {
 										alignSelf="center"
 										lg="5x1"
 										textAlign="center"
-										style={{
-											backdropFilter: `blur(2px)`,
-										}}
-										color="pink.500"
+										textShadow="1px 1px #974043"
+										color={tealish}
 									>
 										{item.name}
 									</Heading>
+									<Text
+										textColor={dirtclean}
+										textShadow="1px 1px #974043"
+										m="6"
+										boxShadow="md"
+										p="6"
+										rounded="md"
+									>
+										Lorem ipsum dolor sit amet, consectetur adipiscing
+										elit. Morbi vel odio fringilla.
+									</Text>
 									<NLink
-										// position="relative"
+										backgroundColor={tealish}
 										align="center"
-										color="cyan.200"
+										color={darkwine}
 										alignSelf="center"
 										href={"/showcase"}
 										w="120px"
 										passhref
 									>
 										SHOWCASE
-										{/* <Button
-											color="red.100"
-											// variant="ghost"
-											// overflow="hidden"
-											zIndex={9999}
-											// mt="75vh"
-											// mb="25vh"
-										> */}
-										{/* SHOWCASE */}
-										{/* </Button> */}
 									</NLink>
 								</Stack>
 							</Container>

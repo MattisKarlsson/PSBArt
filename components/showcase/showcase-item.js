@@ -8,12 +8,12 @@ import {
 	SimpleGrid,
 	Container,
 	Stack,
+	Image,
 } from "@chakra-ui/react";
 
-function ShowcaseItem(props) {
-	const { id, name, image, price } = props;
+function ShowcaseItem({ id, name, image, price } = props) {
 	return (
-		<Box mt="3rem">
+		<Box mt="3rem" d="inline-block">
 			<Container
 				// size="container.lg"
 				h="350px"
@@ -24,30 +24,43 @@ function ShowcaseItem(props) {
 				align="center"
 				// position="relative"
 				maxW="40rem"
-				m="5rem auto"
+				m="4rem auto"
 			>
-				<img
+				<Image
 					src={"/" + image}
 					alt={name}
 					w="100%"
-					h="95%"
-					mb="5px"
-					boxSize="cover"
+					borderRadius="xl"
+					mb={3}
+					// h="95%"
+					// boxSize="cover"
 					// position="relative"
 				/>
 				<Stack
-				// maxW="lg"
-				// spacing={6}
-				// w="full"
-				// position="relative"
-				// top="65vh"
 				// transform="translate(0, -50%)"
 				>
-					<Flex w="100%" h="5%" justifyContent="space-between" fontSize="18px">
-						<Text w="90%" mb="15px">
+					<Flex
+						w="100%"
+						h="5%"
+						justifyContent="space-between"
+						fontSize="20px"
+						flexDirection="column"
+					>
+						<Text
+							fontSize="22px"
+							fontFamily="cursive"
+							w="90%"
+							mb="5px"
+						>
 							{name.toUpperCase()}
 						</Text>
-						<Text w="10%">{price}</Text>
+						<Text w="10%" mb="25px">
+							{price}
+						</Text>
+						<Text w="100%">
+							Phasellus congue, massa eu sodales scelerisque, tortor
+							risus finibus risus.{" "}
+						</Text>
 						{/* <Button colorScheme="teal" variant="outline" as={Link} to="/showcase">
           Showcase
         </Button> */}
