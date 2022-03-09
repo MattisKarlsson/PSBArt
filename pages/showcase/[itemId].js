@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { Fragment } from "react";
-import { getItemById } from "../../../showcase-data";
+import { getItemById } from "../../public/showcase-data";
 
 function ItemDetailPage() {
 	const router = useRouter();

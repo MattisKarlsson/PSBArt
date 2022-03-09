@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import { getAllItems } from "../../../showcase-data";
+import { getAllItems } from "../../public/showcase-data";
 import ShowcaseList from "../../components/showcase/showcase-list";
 
 export default function Showcase() {

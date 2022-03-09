@@ -7,9 +7,15 @@ import Footer from "./footer";
 function Layout(props) {
 	return (
 		<Fragment>
-			<Box backgroundColor={seriespaper} color={babypink}>
+			<Box
+				backgroundColor={seriespaper}
+				color={babypink}
+				minHeight={"100vh"}
+				display="flex"
+				flexDirection="column"
+			>
 				<MainHeader />
-				<main>{props.children}</main>
+				<main flexGrow="1">{props.children}</main>
 				<Footer />
 			</Box>
 		</Fragment>

@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import { getFeaturedItems } from "../../showcase-data";
+import { getFeaturedItems } from "../public/showcase-data";
 import HeroCarousel from "../components/hero/hero-carousel";
 
 export default function HomePage() {
