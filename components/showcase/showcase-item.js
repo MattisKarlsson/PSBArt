@@ -32,6 +32,7 @@ function ShowcaseItem({ id, name, image, price } = props) {
 					w="100%"
 					borderRadius="xl"
 					mb={3}
+					boxShadow="dark-lg"
 					// h="95%"
 					// boxSize="cover"
 					// position="relative"
@@ -51,11 +52,13 @@ function ShowcaseItem({ id, name, image, price } = props) {
 							fontFamily="cursive"
 							w="90%"
 							mb="5px"
+							boxShadow="lg"
+							borderRadius="10px"
 						>
 							{name.toUpperCase()}
 						</Text>
-						<Text w="10%" mb="25px">
-							{price}
+						<Text as="span" w="3rem" mb="25px">
+							{price}€
 						</Text>
 						<Text w="100%">
 							Phasellus congue, massa eu sodales scelerisque, tortor

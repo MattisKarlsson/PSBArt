@@ -68,6 +68,7 @@ export default function FormContainer() {
 								base: "5xl",
 								md: "5xl",
 							}}
+							boxShadow="lg"
 						>
 							Contact
 						</Heading>
@@ -82,7 +83,7 @@ export default function FormContainer() {
 							>
 								<NLink
 									href={`https://github.com/MattisKarlsson`}
-									isExternal
+									isexternal
 								>
 									<IconButton
 										color={tealish}
@@ -96,7 +97,7 @@ export default function FormContainer() {
 								</NLink>
 								<NLink
 									href={`https://www.instagram.com/psb.rhz/`}
-									isExternal
+									isexternal
 								>
 									<IconButton
 										color={tealish}
@@ -204,6 +205,7 @@ export default function FormContainer() {
 											}}
 											isFullWidth
 											type={"submit"}
+											boxShadow="dark-lg"
 										>
 											Send Message
 										</Button>

@@ -21,6 +21,7 @@ function MenuContainer({ children, ...props }) {
 			bgGradient={
 				(backgroundGradient = `linear-gradient(225deg, ${darkwine} 20%, transparent, ${darkerblue} 80%)`)
 			}
+			boxShadow="dark-lg"
 			{...props}
 		>
 			{children}

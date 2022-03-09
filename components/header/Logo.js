@@ -8,6 +8,7 @@ export default function Logo(props) {
 			<NLink href={"/"} passhref w="75px">
 				<Image
 					bg="gray.200"
+					boxShadow="dark-lg"
 					borderRadius={6}
 					src={`logotype.png`}
 					boxSize="75px"

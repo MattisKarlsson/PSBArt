@@ -21,8 +21,6 @@ export default function Footer(props) {
 	return (
 		<Box as="footer" {...props}>
 			<Container
-				// position="fixed"
-				// zIndex={9999}
 				as={Stack}
 				maxW={"100vw"}
 				py={3}
@@ -35,13 +33,13 @@ export default function Footer(props) {
 					(backgroundGradient = `linear-gradient(195deg, ${darkwine} 15%, transparent, ${darkerblue} 80%)`)
 				}
 			>
-				<Text color={tealish} fontSize="sm">
+				<Text color={tealish} fontSize="sm" boxShadow="dark-lg">
 					© 2022 Mattis Karlsson{" "}
 				</Text>
 				<Stack direction={"row"} spacing={6}>
 					<NLink
 						href={`https://github.com/MattisKarlsson`}
-						isExternal
+						isexternal
 					>
 						<IconButton
 							aria-label="Github"
@@ -55,7 +53,7 @@ export default function Footer(props) {
 					</NLink>
 					<NLink
 						href={`https://www.instagram.com/psb.rhz/`}
-						isExternal
+						isexternal
 					>
 						<IconButton
 							aria-label="Instagram"

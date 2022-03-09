@@ -88,6 +88,8 @@ export default function HeroCarousel(props) {
 										textAlign="center"
 										textShadow="1px 1px #974043"
 										color={tealish}
+										boxShadow="dark-lg"
+										borderRadius="10px"
 									>
 										{item.name}
 									</Heading>
@@ -103,6 +105,7 @@ export default function HeroCarousel(props) {
 										elit. Morbi vel odio fringilla.
 									</Text>
 									<NLink
+										boxShadow="dark-lg"
 										backgroundColor={tealish}
 										align="center"
 										color={darkwine}
